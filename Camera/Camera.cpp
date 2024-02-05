@@ -42,3 +42,7 @@ void Camera::CameraZoomDown(sf::Vector2f playerPosition) {
     view.setCenter(playerPosition);
     correctionPosition(playerPosition);
 }
+
+
+
+//testt
