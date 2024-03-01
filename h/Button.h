@@ -7,7 +7,7 @@ private:
     sf::RectangleShape m_shape;
     sf::Vector2f m_initialSize;
 public:
-    
+
     Button(float x, float y, float width, float height);
     void draw(sf::RenderWindow& window);
     bool isMouseOver(sf::RenderWindow& window);
