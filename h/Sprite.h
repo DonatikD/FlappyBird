@@ -1,6 +1,9 @@
 
-#include <SFML/Graphics.hpp>
+
+
+
 #pragma once
+#include <SFML/Graphics.hpp>
 #include <string>
 #include"Map.h"
 #include"Camera.h"
@@ -24,10 +27,11 @@ public:
 	sf::Image playerImage;
 	sf::Texture playerTexture;
 	sf::Sprite playerSprite;
-	sf::Vector2i playerSize{ 20,23 };
+	sf::Vector2i playerSize{ 26,21 };
 	//bool playerCollisionWithEnemy(sf::FloatRect enemyRect);
 	//bool playerCollisionMap(Map map);
 };
+
 
 
 
