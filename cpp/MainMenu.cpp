@@ -1,6 +1,13 @@
-#include "mainMenu.h"
+#include "MainMenu.h"
 #include "Start.h"
 #include <iostream>
+
+
+
+
+using namespace std;
+
+
 
 MainMenu::MainMenu()
     : window(sf::VideoMode(1920, 1080), "SFML Menu"),
