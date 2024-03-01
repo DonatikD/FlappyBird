@@ -8,13 +8,13 @@ public:
 	static const int mapHeigth = 15;
 	static const int mapWidth = 20;
 	char mapField[mapHeigth][mapWidth]{
-		{"             e     "},	
-    	{"             e     "},
-		{"             e     "},
-		{"             e     "},
-		{"             e     "},
-		{"             e     "},
-    	{"             e     "},
+		{"                   "},	
+    	{"                   "},
+		{"                   "},
+		{"                   "},
+		{"                   "},
+		{"                   "},
+    	{"                   "},
 		{"                   "},
 		{"                   "},
 		{"                   "},
@@ -27,7 +27,7 @@ public:
 	Map(std::string mapFileName);
 	void mapLoad(std::string mapFileName);
 	void mapShow(sf::RenderWindow& window);
-	sf::Vector2f mapTileSize = { 144.0f, 256.0f };
+	sf::Vector2f mapTileSize = { 2304.0f, 864.0f };
 	sf::Image mapImage;
 	sf::Texture mapTexture;
 	sf::Sprite mapSprite;
