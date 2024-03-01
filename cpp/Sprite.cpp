@@ -11,9 +11,9 @@ Player::Player(std::string playerFileName) {
 	playerImage.createMaskFromColor(sf::Color());
 	playerTexture.loadFromImage(playerImage);
 	playerSprite.setTexture(playerTexture);
-	playerSprite.setTextureRect(sf::IntRect(0, 0, playerSize.x, playerSize.y));
-	playerSprite.setScale(sf::Vector2f(1.0f, 1.0f));
-	playerSprite.setPosition(100, 200);
+	playerSprite.setTextureRect(sf::IntRect(0, 22, playerSize.x, playerSize.y));
+	playerSprite.setScale(sf::Vector2f(1.9f, 1.9f));
+	playerSprite.setPosition(100, 600);
 }
 
 
@@ -26,11 +26,11 @@ void Player::moveUp(double timer, Camera& camera, Map map) {
 		playerDirection = UP;
 		animationTime = 0.f;
 		animationFrameNumber = 0;
-		playerSprite.setTextureRect(sf::IntRect(0, 0, playerSize.x, playerSize.y));
+		playerSprite.setTextureRect(sf::IntRect(26,21 , playerSize.x, playerSize.y));
 	}
 	else {
 		animationTime += timer;
-		animationFrameNumber = animationTime / (500.0 / 3);
+		animationFrameNumber = animationTime / (0.0f / 3);
 		if (animationFrameNumber > 2) {
 			animationFrameNumber = 0;
 			animationTime = 0.f;
@@ -56,7 +56,7 @@ void Player::moveLeft(double timer, Camera& camera, Map map) {
 	}
 	else {
 		animationTime += timer;
-		animationFrameNumber = animationTime / (500.0 / 3);
+		animationFrameNumber = animationTime / (0.0 / 3);
 		if (animationFrameNumber > 2) {
 			animationFrameNumber = 0;
 			animationTime = 0.f;
@@ -83,7 +83,7 @@ void  Player::moveRight(double timer, Camera& camera, Map map) {
 	}
 	else {
 		animationTime += timer;
-		animationFrameNumber = animationTime / (500.0 / 3);
+		animationFrameNumber = animationTime / (0.0 / 3);
 		if (animationFrameNumber > 2) {
 			animationFrameNumber = 0;
 			animationTime = 0.f;
@@ -109,7 +109,7 @@ void Player::moveDown(double timer, Camera& camera, Map map) {
 
 	else {
 		animationTime += timer;
-		animationFrameNumber = animationTime / (500.0 / 3);
+		animationFrameNumber = animationTime / (0.0 / 3);
 		if (animationFrameNumber > 2) {
 			animationFrameNumber = 0;
 			animationTime = 0.f;
@@ -134,35 +134,3 @@ void Player::moveDown(double timer, Camera& camera, Map map) {
 //	}
 //
 //}
-
-
-//bool Player::playerCollisionMap(Map map) {
-//	sf::Vector2i playPos = { (int)(playerSprite.getPosition().x / map.mapTileSize.x),(int)(playerSprite.getPosition().y / map.mapTileSize.y) };
-//	switch (playerDirection) {
-//	case DOWN: {
-//		if (map.mapField[playPos.y][playPos.x + 1] != ' ' || map.mapField[playPos.y + 1][playPos.x + 1] != ' ' || (map.mapField[playPos.y][playPos.x + 1] == 'x')) {
-//			return false;
-//		}
-//	}break;
-//	case UP: {
-//		if (map.mapField[playPos.y][playPos.x - 1] != ' ' || map.mapField[playPos.y + 1][playPos.x - 1] != ' ' || (map.mapField[playPos.y][playPos.x - 1] == 'x')) {
-//			return false;
-//		}
-//	}break;
-//	case LEFT: {
-//		if (map.mapField[playPos.y + 1][playPos.x] != ' ' || map.mapField[playPos.y + 1][playPos.x + 1] != ' ' || (map.mapField[playPos.y + 1][playPos.x + 1] == 'x')) {
-//			return false;
-//		}
-//	}break;
-//
-//	case RIGHT: {
-//		if (map.mapField[playPos.y - 1][playPos.x] != ' ' || map.mapField[playPos.y - 1][playPos.x + 1] != ' ' || (map.mapField[playPos.y][playPos.x + 1] == 'x')) {
-//			return false;
-//		}
-//	}break;
-//
-//	}
-//	return true;
-//}
-
-
