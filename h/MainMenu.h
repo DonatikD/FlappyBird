@@ -6,13 +6,9 @@
 class MainMenu {
 private:
     sf::RenderWindow window;
-    Button button;
-    sf::Sprite menuBG;
-    sf::Sprite FlappyBirdT;
-    sf::Sprite Button1Sprite;
-    sf::Texture backTexture;
-    sf::Texture FlappyBirdTexture;
-    sf::Texture buttonTexture;
+    Button button, buttonEXIT,/*buttonDevelopers*/buttonOptions;
+    sf::Sprite menuBG, FlappyBirdT, Button1Sprite, Button2Sprite, Button3Sprite, Button4Sprite;
+    sf::Texture backTexture, buttonTextureEXIT, FlappyBirdTexture, buttonTexture, ButtonDevelopersTexture, ButtonOptionsTexture;
     sf::Font font;
 
 public:
