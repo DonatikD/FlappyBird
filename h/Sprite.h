@@ -1,7 +1,6 @@
 
 
 
-
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <string>
@@ -31,7 +30,6 @@ public:
 	//bool playerCollisionWithEnemy(sf::FloatRect enemyRect);
 	//bool playerCollisionMap(Map map);
 };
-
 
 
 
