@@ -21,7 +21,7 @@ namespace start {
         mainWindow.setFramerateLimit(60);
 
         Player mainCharacter("SPRITES_2.png");
-        Map mainMap("MenuBG.png");
+        Map mainMap("MenuBG.png", "SPRITES_5.png");
         Camera mainCamera(sf::Vector2u(45 * 32, 40 * 20), mainCharacter.playerSprite.getPosition());
         Camera mainCamera1(sf::Vector2u(45 * 32, 40 * 20), mainCharacter.playerSprite.getPosition());
 
@@ -51,9 +51,11 @@ namespace start {
                 }
             }
 
-         /*   if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+           /* if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
                 mainCharacter.moveUp(gameTimer, mainCamera, mainMap);
             }*/
+
+
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
                 mainCharacter.moveLeft(gameTimer, mainCamera, mainMap);
             }
