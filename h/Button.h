@@ -16,3 +16,4 @@ public:
     void setScale(float x, float y);
 
 };
+
