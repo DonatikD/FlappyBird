@@ -1,9 +1,13 @@
 #pragma once
+
 #include <SFML/Graphics.hpp>
 #include "Sprite.h"
 #include "Camera.h"
 #include "Map.h"
 
+
+
+using namespace std;
 namespace start {
     void runGame() {
         srand(time(NULL));
@@ -17,7 +21,7 @@ namespace start {
         mainWindow.setFramerateLimit(60);
 
         Player mainCharacter("SPRITES_2.png");
-        Map mainMap("SPRITES_3.png");
+        Map mainMap("MenuBG.png", "SPRITES_5.png");
         Camera mainCamera(sf::Vector2u(45 * 32, 40 * 20), mainCharacter.playerSprite.getPosition());
         Camera mainCamera1(sf::Vector2u(45 * 32, 40 * 20), mainCharacter.playerSprite.getPosition());
 
@@ -47,9 +51,11 @@ namespace start {
                 }
             }
 
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-                mainCharacter.moveRight(gameTimer, mainCamera, mainMap);
-            }
+           /* if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+                mainCharacter.moveUp(gameTimer, mainCamera, mainMap);
+            }*/
+
+
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
                 mainCharacter.moveLeft(gameTimer, mainCamera, mainMap);
             }
@@ -59,6 +65,9 @@ namespace start {
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
                 mainCharacter.moveDown(gameTimer, mainCamera, mainMap);
             };
+               if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+                mainCharacter.moveRight(gameTimer, mainCamera, mainMap);
+            }
 
             mainWindow.clear(sf::Color::Yellow);
             mainWindow.setView(mainCamera.view);
@@ -72,3 +81,4 @@ namespace start {
         }
     }
 }
+
