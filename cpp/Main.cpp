@@ -226,11 +226,16 @@
 
 
 
+
+
+
+
+
 void runGame() {
     srand(time(NULL));
     sf::RenderWindow mainWindow;
 
-    mainWindow.create(sf::VideoMode(2304.0f, 864.0f), L"FlappyBird");
+    mainWindow.create(sf::VideoMode(1920.0f, 1080.0f), L"FlappyBird");
     sf::Clock mainGameClock;
     double gameTimer = 0.f;
     double gameFPSTimer = 0.f;
@@ -238,7 +243,7 @@ void runGame() {
     mainWindow.setFramerateLimit(60);
 
     Player mainCharacter("BIRD.png");
-    Map mainMap("MenuBG.png");
+    Map mainMap("MenuBG_3.png","SPRITES_5.png");
     Camera mainCamera(sf::Vector2u(45 * 32, 40 * 20), mainCharacter.playerSprite.getPosition());
     Camera mainCamera1(sf::Vector2u(45 * 32, 40 * 20), mainCharacter.playerSprite.getPosition());
 
@@ -277,7 +282,7 @@ void runGame() {
           if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
               mainCharacter.moveUp(gameTimer, mainCamera, mainMap);
           }*/
-        /*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+    /*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
             mainCharacter.moveUp(gameTimer, mainCamera, mainMap);
         };*/
 
@@ -818,3 +823,6 @@ int main() {
 ////
 ////	return 0;
 ////}
+
+
+
