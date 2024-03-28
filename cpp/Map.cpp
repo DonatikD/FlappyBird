@@ -24,7 +24,7 @@
 //		for (int width = 0; width < mapWidth - 1; width++) {
 //			switch (mapField[heigth][width]) {
 //			case '1': {
-//				mapTilePosition = { 0.f, 5.f };
+//				mapTilePosition = { 9.3f, 0.f };
 //				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
 //				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
 //			}; break;
@@ -67,145 +67,13 @@
 //
 //
 //			case ' ': {
-//				mapTilePosition = { 0.f, 863.f };
+//				mapTilePosition = { 0.f, 3.f };
 //				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
 //				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
 //			}; break;
 //
 //
-//
-//
-//
-//
-//			case 'e': {
-//				mapTilePosition = { 4.f, 0.f };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//				window.draw(mapSprite);
-//				mapTilePosition = { 4, 0 };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//			}; break;
-//
-//			case 'p': {
-//				mapTilePosition = { 0.f, 1.f };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//				window.draw(mapSprite);
-//				mapTilePosition = { 7.5, 6.f };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//			}; break;
-//
-//
-//
-//			case 'w': {
-//				mapTilePosition = { 0.f, 1.f };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//				window.draw(mapSprite);
-//				mapTilePosition = { 10, 0 };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//			}; break;
-//
-//
-//
-//			case 'n': {
-//				mapTilePosition = { 0.f, 1.f };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//				window.draw(mapSprite);
-//				mapTilePosition = { 7.3, 6.f };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//			}; break;
-//
-//
-//			case 'k': {
-//				mapTilePosition = { 0.f, 1.f };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//				window.draw(mapSprite);
-//				mapTilePosition = { 1.8, 0 };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//			}; break;
-//
-//
-//
-//			case 'y': {
-//				mapTilePosition = { 0.f, 1.f };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//				window.draw(mapSprite);
-//				mapTilePosition = { 3.f, 3.2 };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//			}; break;
-//
-//			case 'i': {
-//				mapTilePosition = { 0.f, 1.f };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//				window.draw(mapSprite);
-//				mapTilePosition = { 1,5 };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//			}; break;
-//
-//			case 'v': {
-//				mapTilePosition = { 0.f, 1.f };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//				window.draw(mapSprite);
-//				mapTilePosition = { 7.2,7 };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//			}; break;
-//
-//	     	case 'x': {
-//				mapTilePosition = { 0.f, 1.f };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//				window.draw(mapSprite);
-//				mapTilePosition = { 4.5,5.6 };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//			}; break;
-//
-//
-//
-//			case 'r': {
-//				mapTilePosition = { 0.f, 1.f };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//				window.draw(mapSprite);
-//				mapTilePosition = { 6,1 };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//			}; break;
-//
-//			case 'c': {
-//				mapTilePosition = { 0.f, 1.f };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//				window.draw(mapSprite);
-//				mapTilePosition = { 3,0 };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//			}; break;
-//
-//
-//			case 'o': {
-//				mapTilePosition = { 0.f, 1.f };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * (heigth)));
-//				window.draw(mapSprite);
-//				mapTilePosition = { 0, 8 };
-//				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-//				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
-//			}; break;
+//		
 //			}
 //			window.draw(mapSprite);
 //
@@ -214,11 +82,14 @@
 //}
 
 
-Map::Map(std::string mapFileName) {
+Map::Map(std::string mapFileName, std::string decorationFileName) {	
 	this->mapFileName = mapFileName;
+	this->mapDecorationFileName = decorationFileName;
 	mapImage.loadFromFile("Photo/" + this->mapFileName);
 	mapTexture.loadFromImage(mapImage);
 	mapSprite.setTexture(mapTexture);
+
+	decorationTexture.loadFromFile("Photo/" + this->mapDecorationFileName);
 }
 void Map::mapLoad(std::string mapFileName) {
 	this->mapFileName = mapFileName;
@@ -232,22 +103,80 @@ void Map::mapLoad(std::string mapFileName) {
 
 
 void Map::mapShow(sf::RenderWindow& window) {
-	// Відображення фону
-	window.draw(mapSprite);
-
 	sf::Vector2f mapTilePosition;
+	sf::Vector2f decorationTilePosition;
+	sf::Vector2f decorationTileSize = { 30.f, 30.f };
+	sf::Sprite decorationSprite(decorationTexture);
+
 	for (int heigth = 0; heigth < mapHeigth; heigth++)
-		for (int width = 0; width < mapWidth - 1; width++) {
+		for (int width = 0; width < mapWidth - 1 ; width++) {
 			switch (mapField[heigth][width]) {
 			case '1': {
-				mapTilePosition = { 0.f, 5.f };
-				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
-				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
+				decorationTilePosition = { 0.f, 0.f };
+				decorationSprite.setTextureRect(sf::IntRect(decorationTilePosition.x * decorationTileSize.x, decorationTilePosition.y * decorationTileSize.y, decorationTileSize.x, decorationTileSize.y));
+				decorationSprite.setPosition(sf::Vector2f(decorationTileSize.x * width, decorationTileSize.y * heigth));
+				window.draw(decorationSprite);
 			}; break;
 			case '2': {
-				mapTilePosition = { 0.f, 5.f };
+				decorationTilePosition = { 5.14f, 0.f };
+				decorationSprite.setTextureRect(sf::IntRect(decorationTilePosition.x * decorationTileSize.x, decorationTilePosition.y * decorationTileSize.y, decorationTileSize.x, decorationTileSize.y));
+				decorationSprite.setPosition(sf::Vector2f(decorationTileSize.x * width, decorationTileSize.y * heigth));
+				window.draw(decorationSprite);
+			}; break;
+
+
+			case '3': {
+				decorationTilePosition = { 5.14f, 3.5f };
+				decorationSprite.setTextureRect(sf::IntRect(decorationTilePosition.x * decorationTileSize.x, decorationTilePosition.y * decorationTileSize.y, decorationTileSize.x, decorationTileSize.y));
+				decorationSprite.setPosition(sf::Vector2f(decorationTileSize.x * width, decorationTileSize.y * heigth));
+				window.draw(decorationSprite);
+			}; break;
+
+			case '4': {
+				decorationTilePosition = { 6.07f, 1.f };
+				decorationSprite.setTextureRect(sf::IntRect(decorationTilePosition.x * decorationTileSize.x, decorationTilePosition.y * decorationTileSize.y, decorationTileSize.x, decorationTileSize.y));
+				decorationSprite.setPosition(sf::Vector2f(decorationTileSize.x * width, decorationTileSize.y * heigth));
+				window.draw(decorationSprite);
+			}; break;
+
+			case '5': {
+				decorationTilePosition = { 6.07f, 0.f };
+				decorationSprite.setTextureRect(sf::IntRect(decorationTilePosition.x * decorationTileSize.x, decorationTilePosition.y * decorationTileSize.y, decorationTileSize.x, decorationTileSize.y));
+				decorationSprite.setPosition(sf::Vector2f(decorationTileSize.x * width, decorationTileSize.y * heigth));
+				window.draw(decorationSprite);
+			}; break;
+
+
+			case '6': {
+				decorationTilePosition = { 5.14f, 4.5f };
+				decorationSprite.setTextureRect(sf::IntRect(decorationTilePosition.x * decorationTileSize.x, decorationTilePosition.y * decorationTileSize.y, decorationTileSize.x, decorationTileSize.y));
+				decorationSprite.setPosition(sf::Vector2f(decorationTileSize.x * width, decorationTileSize.y * heigth));
+				window.draw(decorationSprite);
+			}; break;
+
+
+			case '7': {
+				decorationTilePosition = { 0.f, 0.5f };
+				decorationSprite.setTextureRect(sf::IntRect(decorationTilePosition.x * decorationTileSize.x, decorationTilePosition.y * decorationTileSize.y, decorationTileSize.x, decorationTileSize.y));
+				decorationSprite.setPosition(sf::Vector2f(decorationTileSize.x * width, decorationTileSize.y * heigth));
+				window.draw(decorationSprite);
+			}; break;
+
+
+
+
+
+
+
+			case ' ': {
+			/*	mapTilePosition = { 0.f, 0.f }; 
+				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
+				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));*/
+
+				mapTilePosition = { 0.f, 0.f };
 				mapSprite.setTextureRect(sf::IntRect(mapTilePosition.x * mapTileSize.x, mapTilePosition.y * mapTileSize.y, mapTileSize.x, mapTileSize.y));
 				mapSprite.setPosition(sf::Vector2f(mapTileSize.x * width, mapTileSize.y * heigth));
+				window.draw(mapSprite);
 			}; break;
 				window.draw(mapSprite);
 			}
