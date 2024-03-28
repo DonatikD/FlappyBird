@@ -134,3 +134,35 @@ void Player::moveDown(double timer, Camera& camera, Map map) {
 //	}
 //
 //}
+
+
+//bool Player::playerCollisionMap(Map map) {
+//	sf::Vector2i playPos = { (int)(playerSprite.getPosition().x / map.mapTileSize.x),(int)(playerSprite.getPosition().y / map.mapTileSize.y) };
+//	switch (playerDirection) {
+//	case DOWN: {
+//		if (map.mapField[playPos.y][playPos.x + 1] != ' ' || map.mapField[playPos.y + 1][playPos.x + 1] != ' ' || (map.mapField[playPos.y][playPos.x + 1] == 'x')) {
+//			return false;
+//		}
+//	}break;
+//	case UP: {
+//		if (map.mapField[playPos.y][playPos.x - 1] != ' ' || map.mapField[playPos.y + 1][playPos.x - 1] != ' ' || (map.mapField[playPos.y][playPos.x - 1] == 'x')) {
+//			return false;
+//		}
+//	}break;
+//	case LEFT: {
+//		if (map.mapField[playPos.y + 1][playPos.x] != ' ' || map.mapField[playPos.y + 1][playPos.x + 1] != ' ' || (map.mapField[playPos.y + 1][playPos.x + 1] == 'x')) {
+//			return false;
+//		}
+//	}break;
+//
+//	case RIGHT: {
+//		if (map.mapField[playPos.y - 1][playPos.x] != ' ' || map.mapField[playPos.y - 1][playPos.x + 1] != ' ' || (map.mapField[playPos.y][playPos.x + 1] == 'x')) {
+//			return false;
+//		}
+//	}break;
+//
+//	}
+//	return true;
+//}
+
+
