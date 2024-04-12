@@ -67,7 +67,7 @@ void start::runGame() {
         mainWindow.setView(mainCamera.view);
         mainMap.mapShow(mainWindow);
         mainCharacter.showPlayer(mainWindow);
-        mainWindow.setView(mainCamera1.view);
+        //mainWindow.setView(mainCamera1.view);
         mainMap.mapShow(mainWindow);
         mainCharacter.showPlayer(mainWindow);
         mainWindow.setView(mainCamera.view);
