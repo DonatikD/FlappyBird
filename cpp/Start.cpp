@@ -3,6 +3,8 @@
 #include "Camera.h"
 #include "Map.h"
 
+bool isSpaceKeyPressed = false;
+
 void start::runGame() {
     srand(time(NULL));
     sf::RenderWindow mainWindow;
@@ -15,7 +17,7 @@ void start::runGame() {
     mainWindow.setFramerateLimit(60);
 
     Player mainCharacter("SPRITES_2.png");
-    Map mainMap("MenuBG.png" /*"SPRITES_5.png"*/);
+    Map mainMap("MenuBG.png", "SPRITES_5.png");
     Camera mainCamera(sf::Vector2u(45 * 32, 40 * 20), mainCharacter.playerSprite.getPosition());
     Camera mainCamera1(sf::Vector2u(45 * 32, 40 * 20), mainCharacter.playerSprite.getPosition());
 
@@ -43,25 +45,27 @@ void start::runGame() {
                     MainMenu menu;
                     menu.run();
                 }
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+                    isSpaceKeyPressed = true;
+                    mainCharacter.jump(gameTimer, mainCamera, mainMap);
+                    mainCharacter.fallFalse();
+                }
+                else
+                {
+                    isSpaceKeyPressed = false;
+                }
+                break;
+            case sf::Event::KeyReleased:
+                if (event.key.code == sf::Keyboard::Space) {
+                    isSpaceKeyPressed = false;
+                    mainCharacter.fallTrue();
+                }
                 break;
             }
         }
 
-        /*   if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-               mainCharacter.moveUp(gameTimer, mainCamera, mainMap);
-           }*/
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-            mainCharacter.moveLeft(gameTimer, mainCamera, mainMap);
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-            mainCharacter.moveUp(gameTimer, mainCamera, mainMap);
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-            mainCharacter.moveDown(gameTimer, mainCamera, mainMap);
-        };
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-            mainCharacter.moveRight(gameTimer, mainCamera, mainMap);
-        }
+        mainCharacter.moveRight(gameTimer, mainCamera, mainMap);
+        mainCharacter.moveDown(gameTimer, mainCamera, mainMap);
 
         mainWindow.clear(sf::Color::Yellow);
         mainWindow.setView(mainCamera.view);
