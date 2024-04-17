@@ -17,152 +17,69 @@ Player::Player(std::string playerFileName) {
 }
 
 
-void Player::showPlayer(sf::RenderWindow& window) {
+void Player::showPlayer(sf::RenderWindow& window) const {
 	window.draw(playerSprite);
 }
 
-void Player::moveUp(double timer, Camera& camera, Map map) {
-	if (playerDirection != UP) {
-		playerDirection = UP;
-		animationTime = 0.f;
-		animationFrameNumber = 0;
-		playerSprite.setTextureRect(sf::IntRect(26,21 , playerSize.x, playerSize.y));
-	}
-	else {
-		animationTime += timer;
-		animationFrameNumber = animationTime / (0.0f / 3);
-		if (animationFrameNumber > 2) {
-			animationFrameNumber = 0;
-			animationTime = 0.f;
+void Player::jump(double timer, Camera& camera, Map map) {
+	if (jumping) {
+		sf::Vector2f newPosition = playerSprite.getPosition();
+		newPosition.y -= jumpVelocity * timer;
+		playerSprite.setPosition(newPosition);
+
+		jumpVelocity += gravity * timer;
+
+		std::cout << timer << std::endl;
+		if (jumpVelocity >= -1) {
+			jumping = true;
+			playerSprite.setPosition(newPosition.x, newPosition.y + jumpVelocity * timer);
+			jumpVelocity = 0.000005f;
 		}
-		playerSprite.setTextureRect(sf::IntRect(playerSize.x * animationFrameNumber, 0, playerSize.x, playerSize.y));
 	}
-	playerSprite.move(sf::Vector2f(0.f, -playerSpeed * timer));
-
-	//if (!playerCollisionMap(map)) {
-	//	playerSprite.move(sf::Vector2f(0.f, playerSpeed * timer));
-	//}
-	camera.SetCentrePosition(playerSprite.getPosition());
-}
-
-
-
-void Player::moveLeft(double timer, Camera& camera, Map map) {
-	if (playerDirection != LEFT) {
-		playerDirection = LEFT;
-		animationTime = 0.f;
-		animationFrameNumber = 0;
-		playerSprite.setTextureRect(sf::IntRect(0, 0, playerSize.x, playerSize.y));
-	}
-	else {
-		animationTime += timer;
-		animationFrameNumber = animationTime / (0.0 / 3);
-		if (animationFrameNumber > 2) {
-			animationFrameNumber = 0;
-			animationTime = 0.f;
-		}
-		playerSprite.setTextureRect(sf::IntRect(playerSize.x * animationFrameNumber, 0, playerSize.x, playerSize.y));
-	}
-	playerSprite.move(sf::Vector2f(-playerSpeed * timer, 0.f));
-
-
-	//if (!playerCollisionMap(map)) {
-	//	playerSprite.move(sf::Vector2f(playerSpeed * timer, 0.f));
-	//}
 
 	camera.SetCentrePosition(playerSprite.getPosition());
 }
-
-
-void  Player::moveRight(double timer, Camera& camera, Map map) {
-	if (playerDirection != RIGHT) {
-		playerDirection = RIGHT;
-		animationTime = 0.f;
-		animationFrameNumber = 0;
-		playerSprite.setTextureRect(sf::IntRect(0, 0, playerSize.x, playerSize.y));
-	}
-	else {
-		animationTime += timer;
-		animationFrameNumber = animationTime / (0.0 / 3);
-		if (animationFrameNumber > 2) {
-			animationFrameNumber = 0;
-			animationTime = 0.f;
-		}
-		playerSprite.setTextureRect(sf::IntRect(playerSize.x * animationFrameNumber, 0, playerSize.x, playerSize.y));
-	}
-	playerSprite.move(sf::Vector2f(playerSpeed * timer, 0.f));
-	//if (!playerCollisionMap(map)) {
-	//	playerSprite.move(sf::Vector2f(-playerSpeed * timer, 0.f));
-	//}
-
-	camera.SetCentrePosition(playerSprite.getPosition());
-}
-
 
 void Player::moveDown(double timer, Camera& camera, Map map) {
-	if (playerDirection != DOWN) {
-		playerDirection = DOWN;
-		animationTime = 0.f;
-		animationFrameNumber = 0;
-		playerSprite.setTextureRect(sf::IntRect(0, 0, playerSize.x, playerSize.y));
-	}
+	if (falling) {
+		sf::Vector2f newPosition = playerSprite.getPosition();
+		newPosition.y += fallingVelocity * timer;
+		playerSprite.setPosition(newPosition);
 
-	else {
-		animationTime += timer;
-		animationFrameNumber = animationTime / (0.0 / 3);
-		if (animationFrameNumber > 2) {
-			animationFrameNumber = 0;
-			animationTime = 0.f;
+		fallingVelocity += gravityFall * timer;
+
+		std::cout << timer << std::endl;
+		if (fallingVelocity >= 1) {
+			jumping = true;
+			playerSprite.setPosition(newPosition.x, newPosition.y + fallingVelocity * timer);
+			fallingVelocity = 0.000005f;
 		}
-		playerSprite.setTextureRect(sf::IntRect(playerSize.x * animationFrameNumber, 0, playerSize.x, playerSize.y));
-	}
-	playerSprite.move(sf::Vector2f(0.f, playerSpeed * timer));
 
-	/*if (!playerCollisionMap(map)) {
-		playerSprite.move(sf::Vector2f(0.f, -playerSpeed * timer));
-	}*/
+	}
+
 	camera.SetCentrePosition(playerSprite.getPosition());
 }
-//
-//bool Player::playerCollisionWithEnemy(sf::FloatRect enemyRect) {
-//
-//	if (playerSprite.getGlobalBounds().intersects(enemyRect)) {
-//
-//		return true;
-//
-//
-//	}
-//
-//}
 
+void Player::fallFalse() {
+	falling = false;
+}
+void Player::fallTrue() {
+	falling = true;
+}
 
-//bool Player::playerCollisionMap(Map map) {
-//	sf::Vector2i playPos = { (int)(playerSprite.getPosition().x / map.mapTileSize.x),(int)(playerSprite.getPosition().y / map.mapTileSize.y) };
-//	switch (playerDirection) {
-//	case DOWN: {
-//		if (map.mapField[playPos.y][playPos.x + 1] != ' ' || map.mapField[playPos.y + 1][playPos.x + 1] != ' ' || (map.mapField[playPos.y][playPos.x + 1] == 'x')) {
-//			return false;
-//		}
-//	}break;
-//	case UP: {
-//		if (map.mapField[playPos.y][playPos.x - 1] != ' ' || map.mapField[playPos.y + 1][playPos.x - 1] != ' ' || (map.mapField[playPos.y][playPos.x - 1] == 'x')) {
-//			return false;
-//		}
-//	}break;
-//	case LEFT: {
-//		if (map.mapField[playPos.y + 1][playPos.x] != ' ' || map.mapField[playPos.y + 1][playPos.x + 1] != ' ' || (map.mapField[playPos.y + 1][playPos.x + 1] == 'x')) {
-//			return false;
-//		}
-//	}break;
-//
-//	case RIGHT: {
-//		if (map.mapField[playPos.y - 1][playPos.x] != ' ' || map.mapField[playPos.y - 1][playPos.x + 1] != ' ' || (map.mapField[playPos.y][playPos.x + 1] == 'x')) {
-//			return false;
-//		}
-//	}break;
-//
-//	}
-//	return true;
-//}
+void Player::moveRight(double timer, Camera& camera, Map map) {
+	playerSpeed = 0.08f;
+	playerSprite.move(sf::Vector2f(playerSpeed * timer, 0.f));
 
+	camera.SetCentrePosition(playerSprite.getPosition());
+
+	playerDirection = RIGHT;
+	animationTime += timer;
+	animationFrameNumber = animationTime / (0.0 / 3);
+	if (animationFrameNumber > 2) {
+		animationFrameNumber = 0;
+		animationTime = 0.f;
+	}
+	playerSprite.setTextureRect(sf::IntRect(playerSize.x * animationFrameNumber, 0, playerSize.x, playerSize.y));
+}
 
