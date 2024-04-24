@@ -66,7 +66,12 @@ void start::runGame() {
 
         mainCharacter.moveRight(gameTimer, mainCamera, mainMap);
         mainCharacter.moveDown(gameTimer, mainCamera, mainMap);
-
+        
+        sf::FloatRect playerBounds = mainCharacter.playerSprite.getGlobalBounds();
+        if (mainCharacter.isObject(mainMap, playerBounds)) {
+            std::cout << "collision" << std::endl;
+        }
+        
         mainWindow.clear(sf::Color::Yellow);
         mainWindow.setView(mainCamera.view);
         mainMap.mapShow(mainWindow);
