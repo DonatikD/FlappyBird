@@ -29,6 +29,10 @@ public:
 	void moveDown(double timer, Camera& camera, Map map);
 	void fallFalse();
 	void fallTrue();
+	int getPosX();
+	int getPosY();
+	bool isObject(const Map& map, const sf::FloatRect& playerBounds);
+	//bool isColision(Map map);
 	Direction playerDirection = STAND;
 	sf::Image playerImage;
 	sf::Texture playerTexture;
