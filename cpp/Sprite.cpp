@@ -55,6 +55,8 @@ void Player::moveDown(double timer, Camera& camera, Map map) {
 			fallingVelocity = 0.000005f;
 		}
 
+		
+
 	}
 
 	camera.SetCentrePosition(playerSprite.getPosition());
@@ -83,3 +85,31 @@ void Player::moveRight(double timer, Camera& camera, Map map) {
 	playerSprite.setTextureRect(sf::IntRect(playerSize.x * animationFrameNumber, 0, playerSize.x, playerSize.y));
 }
 
+int Player::getPosX() {
+	return playerSprite.getPosition().x;
+}
+int Player::getPosY() {
+	return playerSprite.getPosition().y;
+}
+
+
+bool Player::isObject(const Map& map, const sf::FloatRect& playerBounds) {
+	for (int i = 0; i < map.mapHeigth; i++) {
+		for (int j = 0; j < map.mapWidth; j++) {
+			if (map.mapField[i][j] == '1' || map.mapField[i][j] == '2' || map.mapField[i][j] == '3' ||
+				map.mapField[i][j] == '4' || map.mapField[i][j] == '5' || map.mapField[i][j] == '6' ||
+				map.mapField[i][j] == '7') {
+				sf::FloatRect objectBounds(j * map.mapTileSize.x, i * map.mapTileSize.y,
+					map.mapTileSize.x, map.mapTileSize.y);
+				if (playerBounds.intersects(objectBounds)) {
+					return true;
+				}
+			}
+		}
+	}
+	return false;
+}
+
+//bool Player::isColision(Map map) {
+//
+//}
