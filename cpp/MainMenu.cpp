@@ -180,20 +180,22 @@
 #include "Sound.h"
 #include <iostream>
 #include <SFML/Audio.hpp>
+#include"Map.h"
+#include"Developers.h"
 
 using namespace std;
 
 MainMenu::MainMenu()
     : window(sf::VideoMode(1920, 1080), "SFML Menu"),
-    button(800, 350, 406, 149), buttonEXIT(800, 650, 406, 149), buttonOptions(800, 500, 406, 149) {  //11
+    button(800, 350, 406, 149), buttonEXIT(800, 650, 406, 149), buttonOptions(800, 500, 406, 149)/*buttonDevelopers(800,500,400,140)*/{  //11
     if (!font.loadFromFile("Fonts/arial.ttf")) {}
     if (!backTexture.loadFromFile("Photo/MenuBG.png")) {}
     if (!FlappyBirdTexture.loadFromFile("Photo/logo.png")) {}
     //if (!buttonTexture.loadFromFile("Photo/Start-button-sprite.png")) {} 
     if (!buttonTexture.loadFromFile("Photo/START.png")) {}
     if (!buttonTextureEXIT.loadFromFile("Photo/EXIT.png")) {}
-    if (!ButtonOptionsTexture.loadFromFile("Photo/OPTIONS.png")) {}
-    //if (!ButtonDevelopersTexture.loadFromFile("Photo/developers.png")) {}
+    if (!ButtonOptionsTexture.loadFromFile("Photo/OPTIONS.png")) {} 
+   /* if (!ButtonDevelopersTexture.loadFromFile("Photo/Developers.png")) {}*/
 
 
     button.setTexture(buttonTexture);
@@ -288,7 +290,6 @@ void MainMenu::run() {
                     menuBGSound.stop();
                     window.close();
                     options::runOptions();
-
                 }
                 if (buttonEXIT.isMouseOver(window)) {
                     std::cout << "Bye\n";
@@ -302,7 +303,9 @@ void MainMenu::run() {
 
         button.update(window);
         buttonEXIT.update(window);
-        // buttonDevelopers.update(window);
+
+
+    /*    buttonDevelopers.update(window);*/
         buttonOptions.update(window);
 
         window.clear();
@@ -311,7 +314,9 @@ void MainMenu::run() {
         button.draw(window);
         buttonEXIT.draw(window); //11
         buttonOptions.draw(window);
-        //buttonDevelopers.draw(window);
+ /*       buttonDevelopers.draw(window);*/
+
+
         window.display();
     }
 }
