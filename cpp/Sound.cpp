@@ -1,7 +1,7 @@
 #include "Sound.h"
 
 Sound::Sound() {
-    music.setVolume(100);
+    music.setVolume(30);
     music.setLoop(false);
 }
 
