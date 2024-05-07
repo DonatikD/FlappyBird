@@ -57,10 +57,10 @@ namespace options {
 
         Sound sound;
         sound.loadMusic("Sound/Music1.mp3");
-        sound.setVolume(5);
+
         sound.play();
 
-        bool soundOn = false;
+        bool soundOn = true;
 
 
         sf::Font font;
@@ -69,21 +69,6 @@ namespace options {
             return;
         }
 
-        sf::Text Dtext;
-        Dtext.setFont(font);
-        Dtext.setString("Developed by:");
-        Dtext.setCharacterSize(24);
-        Dtext.setFillColor(sf::Color::Black);
-        Dtext.setPosition(750, 900);
-
-
-
-        sf::Text Mtext;
-        Mtext.setFont(font);
-        Mtext.setString("Maksym Baran");
-        Mtext.setCharacterSize(24);
-        Mtext.setFillColor(sf::Color::Black);
-        Mtext.setPosition(930, 850);
 
 
 
@@ -92,10 +77,10 @@ namespace options {
         Otext.setFont(font);
         Otext.setString("Options");
         Otext.setCharacterSize(85);
-        Otext.setFillColor(sf::Color::Black);
+        Otext.setFillColor(sf::Color::White);
         Otext.setPosition(750, 100);
 
-
+        
 
         sf::Texture backgroundTexture;
         if (!backgroundTexture.loadFromFile("Photo/MenuBG1.png")) {
@@ -104,9 +89,9 @@ namespace options {
         sf::Sprite backgroundSprite(backgroundTexture);
 
 
-      //Тут створюється текстурка
+      //Тут створюється текстурка 
         
-
+        
         Button buttonDevelopers(790, 300, 500, 185);
    
         sf::Texture buttonTexture;
@@ -163,7 +148,7 @@ namespace options {
                     MainMenu menu;
                     menu.run();
                 }
-                else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::S) {
+              /*  else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::S) {
                     soundOn = !soundOn;
                     if (soundOn) {
                         sound.play();
@@ -171,7 +156,7 @@ namespace options {
                     else {
                         sound.pause();
                     }
-                }
+                }*/
             }
 
                buttonDevelopers.update(optionsWindow);
@@ -226,15 +211,15 @@ namespace options {
 
                    if (buttonMusic.isMouseOver(optionsWindow)) {
                        std::cout << "Music button clicked\n";
+                       sound.pause();
                        optionsWindow.close();
                        Music::runMusic();
+                 
                    }
                }
 
             optionsWindow.clear();
             optionsWindow.draw(backgroundSprite);
-           /* optionsWindow.draw(Dtext);*/
-          /* optionsWindow.draw(Mtext);*/
             optionsWindow.draw(Otext);
             buttonDevelopers.draw(optionsWindow);
             buttonDonate.draw(optionsWindow);
