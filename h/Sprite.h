@@ -12,10 +12,10 @@ private:
 	bool gameOver = false;
 	bool jumping = true;
 	bool falling = true;
-	double jumpVelocity = -0.000005f;
+	double jumpVelocity = 0.4f;
 	double gravity = -0.005f;
 	double gravityFall = 0.000005f;
-	double fallingVelocity = 0.005f;
+	double fallingVelocity = 0.01f;
 public:
 	std::string playerFileName;
 	double playerSpeed = 50.f / 300;
@@ -29,9 +29,12 @@ public:
 	void moveDown(double timer, Camera& camera, Map map);
 	void fallFalse();
 	void fallTrue();
+	void getPos();
 	int getPosX();
 	int getPosY();
 	bool isObject(const Map& map, const sf::FloatRect& playerBounds);
+	bool itsCoins(const Map& map, const sf::FloatRect& playerBounds);
+
 	//bool isColision(Map map);
 	Direction playerDirection = STAND;
 	sf::Image playerImage;
