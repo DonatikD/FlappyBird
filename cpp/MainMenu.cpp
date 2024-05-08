@@ -182,20 +182,21 @@
 #include <SFML/Audio.hpp>
 #include"Map.h"
 #include"Developers.h"
+#include "D.h"
 
 using namespace std;
 
 MainMenu::MainMenu()
     : window(sf::VideoMode(1920, 1080), "SFML Menu"),
-    button(800, 350, 406, 149), buttonEXIT(800, 650, 406, 149), buttonOptions(800, 500, 406, 149)/*buttonDevelopers(800,500,400,140)*/{  //11
+    button(800, 350, 406, 149), buttonEXIT(800, 650, 406, 149), buttonOptions(800, 500, 406, 149)/*buttonDevelopers(800,500,400,140)*/ {  //11
     if (!font.loadFromFile("Fonts/arial.ttf")) {}
     if (!backTexture.loadFromFile("Photo/MenuBG.png")) {}
     if (!FlappyBirdTexture.loadFromFile("Photo/logo.png")) {}
     //if (!buttonTexture.loadFromFile("Photo/Start-button-sprite.png")) {} 
     if (!buttonTexture.loadFromFile("Photo/START.png")) {}
     if (!buttonTextureEXIT.loadFromFile("Photo/EXIT.png")) {}
-    if (!ButtonOptionsTexture.loadFromFile("Photo/OPTIONS.png")) {} 
-   /* if (!ButtonDevelopersTexture.loadFromFile("Photo/Developers.png")) {}*/
+    if (!ButtonOptionsTexture.loadFromFile("Photo/OPTIONS.png")) {}
+    /* if (!ButtonDevelopersTexture.loadFromFile("Photo/Developers.png")) {}*/
 
 
     button.setTexture(buttonTexture);
@@ -226,15 +227,15 @@ void MainMenu::run() {
             if (event.type == sf::Event::Closed) {
                 window.close();
             }
-        
+
             if (event.key.code == sf::Keyboard::T) {
                 /*   if ((menuBGSound.getVolume() - 10) > 100)
                        menuBGSound.setVolume(menuBGSound.getVolume() - 10);*/
 
                 menuBGSound.stop();
-           /*     menuBGSound.loadMusic("Sound/Music1.mp3");
-                menuBGSound.play();
-                menuBGSound.setLoop(true);*/
+                /*     menuBGSound.loadMusic("Sound/Music1.mp3");
+                     menuBGSound.play();
+                     menuBGSound.setLoop(true);*/
             }
 
             if (event.key.code == sf::Keyboard::P) {
@@ -282,7 +283,7 @@ void MainMenu::run() {
                 if (button.isMouseOver(window)) {
                     std::cout << "lets go\n";
                     window.close();
-                    start::runGame();
+                    D::runD();
                     menuBGSound.stop();
                 }
                 if (buttonOptions.isMouseOver(window)) {
@@ -297,7 +298,7 @@ void MainMenu::run() {
                     menuBGSound.stop();
                 }
 
-             
+
             }
         }
 
@@ -305,7 +306,7 @@ void MainMenu::run() {
         buttonEXIT.update(window);
 
 
-    /*    buttonDevelopers.update(window);*/
+        /*    buttonDevelopers.update(window);*/
         buttonOptions.update(window);
 
         window.clear();
@@ -314,7 +315,7 @@ void MainMenu::run() {
         button.draw(window);
         buttonEXIT.draw(window); //11
         buttonOptions.draw(window);
- /*       buttonDevelopers.draw(window);*/
+        /*       buttonDevelopers.draw(window);*/
 
 
         window.display();
