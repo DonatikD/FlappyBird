@@ -38,13 +38,30 @@
 #include"Music.h"
 
 
+
+
+
+
+
+
+
+
 using namespace std;
 namespace options {
     void runOptions() {
+
+        //Sound sound;
+        //OptionsObserver optionsObserver(sound);
+        //sound.addObserver(&optionsObserver);
+
         sf::RenderWindow optionsWindow;
         optionsWindow.create(sf::VideoMode(1920, 1080), L"Options");
         sf::Clock mainGameClock;
         sf::Time gameTimer;
+
+
+       
+
 
         sf::Text text;
         text.setString("Developed by: Baran Maksym");
@@ -55,7 +72,7 @@ namespace options {
 
 
 
-        Sound sound;
+       Sound sound;
         sound.loadMusic("Sound/Music1.mp3");
 
         sound.play();
