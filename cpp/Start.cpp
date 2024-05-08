@@ -1,13 +1,19 @@
+#include <iostream>
+#include <SFML/Graphics.hpp>
 #include "start.h"
 #include "Sprite.h"
 #include "Camera.h"
 #include "Map.h"
-
+#include "MainMenu.h"
+#include"Sound.h"
 bool isSpaceKeyPressed = false;
+int COINSCOUNTER;
 
 void start::runGame() {
     srand(time(NULL));
     sf::RenderWindow mainWindow;
+    sf::Font font;
+    bool gameOver = false;
 
     mainWindow.create(sf::VideoMode(1200, 750), L"FlappyBird");
     sf::Clock mainGameClock;
@@ -26,6 +32,15 @@ void start::runGame() {
     sf::Vector2f cameraCenter(1600 / 2.f, 950 / 2.f);
     mainCamera1.view.setCenter(cameraCenter);
     mainCamera1.view.setViewport(sf::FloatRect(0.f, 0.75f, 0.3f, 0.3f));
+    
+
+
+    Sound sound;
+    sound.loadMusic("Sound/Music1.mp3");
+
+    sound.play();
+    bool soundOn = true;
+
 
     while (mainWindow.isOpen()) {
         gameTimer = mainGameClock.restart().asMilliseconds();
@@ -39,6 +54,8 @@ void start::runGame() {
         while (mainWindow.pollEvent(event)) {
             switch (event.type) {
             case sf::Event::Closed:
+                mainWindow.close();
+                break;
             case sf::Event::KeyPressed:
                 if (event.key.code == sf::Keyboard::Escape) {
                     mainWindow.close();
@@ -50,10 +67,6 @@ void start::runGame() {
                     mainCharacter.jump(gameTimer, mainCamera, mainMap);
                     mainCharacter.fallFalse();
                 }
-                else
-                {
-                    isSpaceKeyPressed = false;
-                }
                 break;
             case sf::Event::KeyReleased:
                 if (event.key.code == sf::Keyboard::Space) {
@@ -64,19 +77,44 @@ void start::runGame() {
             }
         }
 
-        mainCharacter.moveRight(gameTimer, mainCamera, mainMap);
-        mainCharacter.moveDown(gameTimer, mainCamera, mainMap);
-        
-        sf::FloatRect playerBounds = mainCharacter.playerSprite.getGlobalBounds();
-        if (mainCharacter.isObject(mainMap, playerBounds)) {
-            std::cout << "collision" << std::endl;
+        if (!gameOver) { 
+            bool isGameOver = false;
+            sf::FloatRect playerBounds = mainCharacter.playerSprite.getGlobalBounds();
+
+
+            if (mainCharacter.isObject(mainMap, mainCharacter.playerSprite.getGlobalBounds())) {
+                std::cout << "collision" << std::endl;
+                isGameOver = true; 
+            }
+
+            if (mainCharacter.itsCoins(mainMap, playerBounds)) {
+                COINSCOUNTER += 1;
+                std::cout << "coins:" << COINSCOUNTER << std::endl;
+            }
+
+            if (isGameOver) {
+                gameOver = true; 
+                std::cout << "Game Over!" << std::endl;
+                mainWindow.close();
+                sound.pause();
+                
+                MainMenu menu;
+                menu.run();
+                mainWindow.display();
+
+            }
+            else {
+                mainCharacter.moveRight(gameTimer, mainCamera, mainMap);
+                mainCharacter.moveDown(gameTimer, mainCamera, mainMap);
+            }
         }
-        
+        else {
+            mainWindow.display();
+
+        }
+
         mainWindow.clear(sf::Color::Yellow);
         mainWindow.setView(mainCamera.view);
-        mainMap.mapShow(mainWindow);
-        mainCharacter.showPlayer(mainWindow);
-        //mainWindow.setView(mainCamera1.view);
         mainMap.mapShow(mainWindow);
         mainCharacter.showPlayer(mainWindow);
         mainWindow.setView(mainCamera.view);
