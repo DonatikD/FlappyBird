@@ -12,8 +12,17 @@ Player::Player(std::string playerFileName) {
 	playerTexture.loadFromImage(playerImage);
 	playerSprite.setTexture(playerTexture);
 	playerSprite.setTextureRect(sf::IntRect(0, 22, playerSize.x, playerSize.y));
-	playerSprite.setScale(sf::Vector2f(1.9f, 1.9f));
-	playerSprite.setPosition(100, 600);
+	/*for (int i = 0; i < 3; i++) {
+		if (i == 1) {
+			playerSprite.setTextureRect(sf::IntRect(0, 0, playerSize.x, playerSize.y));
+		}
+		else if (i == 2) {
+		
+			i = 0;
+		}
+	}*/
+	playerSprite.setScale(sf::Vector2f(1.1f, 1.1f));
+	playerSprite.setPosition(0, 650);
 }
 
 
@@ -27,14 +36,14 @@ void Player::jump(double timer, Camera& camera, Map map) {
 		newPosition.y -= jumpVelocity * timer;
 		playerSprite.setPosition(newPosition);
 
-		jumpVelocity += gravity * timer;
+		/*jumpVelocity += gravity * timer;
 
 		std::cout << timer << std::endl;
 		if (jumpVelocity >= -1) {
 			jumping = true;
 			playerSprite.setPosition(newPosition.x, newPosition.y + jumpVelocity * timer);
-			jumpVelocity = 0.000005f;
-		}
+			jumpVelocity = 0.00007f;
+		}*/
 	}
 
 	camera.SetCentrePosition(playerSprite.getPosition());
@@ -48,12 +57,12 @@ void Player::moveDown(double timer, Camera& camera, Map map) {
 
 		fallingVelocity += gravityFall * timer;
 
-		std::cout << timer << std::endl;
+		/*std::cout << timer << std::endl;
 		if (fallingVelocity >= 1) {
 			jumping = true;
 			playerSprite.setPosition(newPosition.x, newPosition.y + fallingVelocity * timer);
 			fallingVelocity = 0.000005f;
-		}
+		}*/
 
 		
 
@@ -70,7 +79,7 @@ void Player::fallTrue() {
 }
 
 void Player::moveRight(double timer, Camera& camera, Map map) {
-	playerSpeed = 0.08f;
+	playerSpeed = 0.05f;
 	playerSprite.move(sf::Vector2f(playerSpeed * timer, 0.f));
 
 	camera.SetCentrePosition(playerSprite.getPosition());
@@ -97,7 +106,7 @@ bool Player::isObject(const Map& map, const sf::FloatRect& playerBounds) {
 	for (int i = 0; i < map.mapHeigth; i++) {
 		for (int j = 0; j < map.mapWidth; j++) {
 			if (map.mapField[i][j] == '1' || map.mapField[i][j] == '2' || map.mapField[i][j] == '3' ||
-				map.mapField[i][j] == '4' || map.mapField[i][j] == '5' || map.mapField[i][j] == '6' ||
+				map.mapField[i][j] == '4' || map.mapField[i][j] == '5' ||
 				map.mapField[i][j] == '7') {
 				sf::FloatRect objectBounds(j * map.mapTileSize.x, i * map.mapTileSize.y,
 					map.mapTileSize.x, map.mapTileSize.y);
@@ -110,6 +119,20 @@ bool Player::isObject(const Map& map, const sf::FloatRect& playerBounds) {
 	return false;
 }
 
-//bool Player::isColision(Map map) {
-//
-//}
+
+bool Player::itsCoins(const Map& map, const sf::FloatRect& playerBounds) {
+	for (int i = 0; i < map.mapHeigth; i++) {
+		for (int j = 0; j < map.mapWidth; j++) {
+			if (map.mapField[i][j] == '6') {
+				sf::FloatRect coinsBounds(j * map.mapTileSize.x, i * map.mapTileSize.y,
+					map.mapTileSize.x, map.mapTileSize.y); 
+				if (playerBounds.intersects(coinsBounds)) {
+					return true;
+				}
+			}
+		}
+	}
+	return false;
+}
+
+
